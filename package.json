@@ -1,0 +1,49 @@
+{
+  "name": "gulp-typescript-jenkins-reporter",
+  "version": "1.0.0",
+  "description": "gulp-typescript checkstyle reporter, to be used by Jenkins (Hudson). Writes output to an xml file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint src test/*.test.js; exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolas-schmitt/gulp-typescript-jenkins-reporter.git"
+  },
+  "keywords": [
+    "gulp",
+    "typescript",
+    "checkstyle",
+    "reporter",
+    "jenkins",
+    "hudson"
+  ],
+  "author": "Nicolas Schmitt <https://github.com/nicolas-schmitt>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicolas-schmitt/gulp-typescript-jenkins-reporter/issues"
+  },
+  "homepage": "https://github.com/nicolas-schmitt/gulp-typescript-jenkins-reporter#readme",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "lodash": "^4.11.2",
+    "plexer": "^1.0.1",
+    "readable-stream": "^2.1.2",
+    "upath": "^0.1.7",
+    "vinyl": "^1.1.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-spies": "^0.7.1",
+    "chai-string": "^1.2.0",
+    "chai-xml": "^0.3.1",
+    "eslint": "^2.10.1",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^2.13.0",
+    "mocha": "^2.4.5",
+    "typescript": "^1.8.10"
+  }
+}
