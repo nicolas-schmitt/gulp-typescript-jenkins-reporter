@@ -1,6 +1,6 @@
 {
   "name": "gulp-typescript-jenkins-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "gulp-typescript checkstyle reporter, to be used by Jenkins (Hudson). Writes output to an xml file.",
   "main": "index.js",
   "scripts": {
