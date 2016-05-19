@@ -1,7 +1,7 @@
 {
   "name": "gulp-typescript-jenkins-reporter",
   "version": "1.0.1",
-  "description": "gulp-typescript checkstyle reporter, to be used by Jenkins (Hudson). Writes output to an xml file.",
+  "description": "gulp-typescript pmd reporter, to be used by Jenkins (Hudson). Writes output to an xml file.",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
@@ -14,8 +14,11 @@
   "keywords": [
     "gulp",
     "typescript",
-    "checkstyle",
+    "tsc",
+    "pmd",
     "reporter",
+    "report",
+    "xml",
     "jenkins",
     "hudson"
   ],
