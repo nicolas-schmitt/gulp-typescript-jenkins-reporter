@@ -1,0 +1,10 @@
+# dev dependencies
+.eslintrc
+.travis.yml
+test
+sandbox
+
+# IDEs
+.c9
+.vscode
+.idea
