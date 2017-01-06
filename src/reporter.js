@@ -29,12 +29,13 @@ function report(options) {
     
     return {
         error: function(error) {
-            const reportPath = getReportedFilePath(options, error.tsFile);
-            
-            errorBuffer.push({
-                xml: formatter.formatError(error),
-                path: reportPath
-            });
+            const file = _.get(error, 'diagnostic.file');
+            if (file) {
+                errorBuffer.push({
+                    xml: formatter.formatError(error),
+                    path: getReportedFilePath(options, file)
+                });
+            }
         },
         finish: function() {
             if (options.sort) {
