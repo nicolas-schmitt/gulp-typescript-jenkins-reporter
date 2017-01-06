@@ -1,7 +1,13 @@
 'use strict';
 
 const chai = require('chai');
+const gulp = require('gulp');
+const ts = require('gulp-typescript');
+const fs = require('fs');
 const expect = chai.expect;
+const xpath = require('xpath');
+const dom = require('xmldom').DOMParser;
+chai.use(require('chai-xml'));
 
 const reporter = require('../src/reporter');
 
@@ -10,6 +16,80 @@ describe('reporter', function() {
     const tsFileShim = {
         path: path
     };
+    
+    function createReport(path) {
+        const project = ts.createProject({});
+        return new Promise((resolve, reject) => {
+            gulp.src('./test/mocks/dirty.ts')
+                .pipe(project(reporter.report({
+                    filename: path,
+                })))
+                .on('finish', resolve);
+        });
+    }
+    
+    function readFile(path) {
+        return new Promise((resolve, reject) => {
+            fs.readFile(path, (err, content) => {
+                if (err) {
+                    reject(err);
+                }
+                
+                resolve(content.toString());
+            });
+        });
+    }
+    
+    describe('#report', function() {
+        const reportPath = './pmd.xml';
+        let reportContent = '';
+        let xmlReport = null;
+        
+        before(function(done) {
+            this.timeout(5000);
+            createReport()
+                .then(() => {
+                    return readFile(reportPath);
+                })
+                .then((results) => {
+                   reportContent = results;
+                   xmlReport = new dom().parseFromString(reportContent);
+                   done();
+                })
+                .catch((err) => {
+                    if (err) {
+                        console.error(err);
+                    }
+    
+                    done();
+                });
+        });
+
+        it('should create a valid xml report', function() {
+            expect(reportContent).xml.to.be.valid();
+        });
+        
+        it('should create an xml report with one file node', function() {
+            const nodes = xpath.select('//file', xmlReport);
+            expect(nodes.length).to.equal(1);
+        });
+        
+        it('should create an xml report with 3 violation nodes', function() {
+            const nodes = xpath.select('//violation', xmlReport);
+            expect(nodes.length).to.equal(3);
+        });
+
+        after(function(done) {
+            fs.unlink(reportPath, (err) => {
+                if (err) {
+                    console.error(err);
+                }
+
+                done();
+            });
+        });
+
+    });
     
     describe('#getReportedFilePath', function() {
         it('shouldn\'t rebase the path when options.pathBase is undefined', function() {

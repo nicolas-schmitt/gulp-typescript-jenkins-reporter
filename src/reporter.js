@@ -41,7 +41,7 @@ function report(options) {
             if (options.sort) {
                 errorBuffer = _.sortBy(errorBuffer, 'path');
             }
-            
+
             const content = formatter.formatStream(errorBuffer, options);
             fs.writeFile(options.filename, content, function(err) {
                 if (err) {
