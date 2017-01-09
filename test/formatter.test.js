@@ -22,7 +22,7 @@ describe('formatter', function() {
                 });
             });
         });
-        
+
         it('should return the xml corresponding to the error', function() {
             _.forEach(inputMock, function(input, name) {
                 _.forEach(input.errors, function(error, i) {
@@ -33,7 +33,7 @@ describe('formatter', function() {
             });
         });
     });
-    
+
     describe('#formatFile', function() {
         it('should return a valid xml', function() {
             _.forEach(outputMock, function(mock) {
@@ -48,13 +48,13 @@ describe('formatter', function() {
                 expect(actualXml).xml.to.be.valid();
             });
         });
-        
+
         it('should return an empty string when there is no error', function() {
             const formatter = new Formatter();
             expect(formatter.formatFile(outputMock.clean.fullFilename, outputMock.clean.errors))
                 .to.equal('');
         });
-        
+
         it('should return a file element with as many children as failure', function() {
             _.forEach(outputMock, function(mock) {
                 const formatter = new Formatter();
@@ -69,7 +69,7 @@ describe('formatter', function() {
             });
         });
     });
-    
+
     describe('#formatStream', function() {
         const errors = _.flatten(_.map(outputMock, function(mock) {
             return _.map(mock.errors, function(error) {
@@ -85,14 +85,14 @@ describe('formatter', function() {
             const actualXml = formatter.formatStream(errors);
             expect(actualXml).xml.to.be.valid();
         });
-        
+
         it('should call #formatFile for each file with error', function() {
             const formatter = new Formatter();
             const spy = chai.spy.on(formatter, 'formatFile');
             formatter.formatStream(errors);
             expect(spy).to.have.been.called.exactly(2);
         });
-        
+
         it('should return a pmd element with as many children as file with error', function() {
             const formatter = new Formatter();
             const actualXml = formatter.formatStream(errors);

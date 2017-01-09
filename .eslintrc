@@ -1,10 +1,15 @@
 {
   // http://eslint.org/docs/rules/
+
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "script"
   },
-  
+
+  "globals": {
+    "Promise": true
+  },
+
   "env": {
     "browser": false,     // browser global variables
     "node": true,         // Node.js global variables and Node.js-specific rules
