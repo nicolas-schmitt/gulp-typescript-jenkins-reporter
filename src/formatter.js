@@ -40,6 +40,22 @@ class Formatter {
         return result;
     }
 
+    formatMessage(message, indent) {
+        const indentStr = _.repeat(' ', indent)
+        if (typeof message === 'string') {
+            return indentStr + message;
+        }
+
+        if (!message.next || message.next.length === 0) {
+            return indentStr + message.messageText;
+        }
+
+        return indentStr +
+            message.messageText +
+            '\n' +
+            message.next.map(chain => this.formatMessage(chain, indent + 2)).join('');
+    }
+
     formatError(error) {
         const start = error.startPosition || DefaultPosition;
         const end = error.endPosition || DefaultPosition;
