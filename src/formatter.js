@@ -59,6 +59,7 @@ class Formatter {
     formatError(error) {
         const start = error.startPosition || DefaultPosition;
         const end = error.endPosition || DefaultPosition;
+        const message = _.escape(this.formatMessage(error.diagnostic.messageText, 0));
 
         return '<violation' +
             addErrorField('beginline', start.line) +
@@ -68,7 +69,7 @@ class Formatter {
             addErrorField('priority', error.diagnostic.category) +
             addErrorField('rule', 'TS' + error.diagnostic.code) +
             '>' +
-            _.escape(error.diagnostic.messageText) +
+            message +
             '</violation>';
     }
 }
