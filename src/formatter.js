@@ -46,14 +46,11 @@ class Formatter {
             return indentStr + message;
         }
 
-        if (!message.next || message.next.length === 0) {
+        if (!message.next) {
             return indentStr + message.messageText;
         }
 
-        return indentStr +
-            message.messageText +
-            '\n' +
-            message.next.map(chain => this.formatMessage(chain, indent + 2)).join('');
+        return indentStr + message.messageText + '\n' + this.formatMessage(message.next, indent + 2);
     }
 
     formatError(error) {

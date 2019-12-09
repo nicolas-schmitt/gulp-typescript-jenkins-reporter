@@ -20,3 +20,11 @@ export class Grunt extends Orc {
         this.weapon = 'axe';
     }
 }
+
+interface A {
+    prop: number;
+}
+
+interface B extends A {
+    prop: string;
+}

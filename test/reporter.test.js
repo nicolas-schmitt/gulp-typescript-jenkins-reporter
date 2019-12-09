@@ -73,9 +73,9 @@ describe('reporter', function() {
             expect(nodes.length).to.equal(1);
         });
 
-        it('should create an xml report with 3 violation nodes', function() {
+        it('should create an xml report with 4 violation nodes', function() {
             const nodes = xpath.select('//violation', xmlReport);
-            expect(nodes.length).to.equal(3);
+            expect(nodes.length).to.equal(4);
         });
 
         after(function(done) {
