@@ -46,11 +46,18 @@ class Formatter {
             return indentStr + message;
         }
 
-        if (!message.next) {
+        if (!message.next || message.next.length === 0) {
             return indentStr + message.messageText;
         }
 
-        return indentStr + message.messageText + '\n' + this.formatMessage(message.next, indent + 2);
+        let chainedMessages;
+        if (Array.isArray(message.next)) {
+            chainedMessages = message.next.map(chain => this.formatMessage(chain, indent + 2)).join('');
+        } else {
+            chainedMessages = this.formatMessage(message.next, indent + 2);
+        }
+
+        return indentStr + message.messageText + '\n' + chainedMessages;
     }
 
     formatError(error) {

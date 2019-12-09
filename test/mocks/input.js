@@ -290,17 +290,17 @@ module.exports = {
                     messageText: "Interface 'B' incorrectly extends interface 'A'.",
                     category: 1,
                     code: 2430,
-                    next: {
+                    next: [{
                         messageText: "Types of property 'prop' are incompatible.",
                         category: 1,
                         code: 2326,
-                        next: {
+                        next: [{
                             messageText: "Type 'string' is not assignable to type 'number'.",
                             category: 1,
                             code: 2322,
                             next: undefined
-                        }
-                    }
+                        }]
+                    }]
                 }
             },
             tsFile: {
