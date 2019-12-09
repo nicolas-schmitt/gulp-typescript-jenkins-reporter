@@ -266,8 +266,7 @@ module.exports = {
                 symbolCount: 22062,
                 id: 14999
             }
-        },
-    {
+        }, {
             name: 'TypeScript error',
             fullFilename: '/home/ubuntu/workspace/sandbox/data/awful.ts',
             relativeFilename: 'data/awful.ts',
