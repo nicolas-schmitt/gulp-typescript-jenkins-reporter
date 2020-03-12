@@ -7,7 +7,7 @@ chai.use(require('chai-spies'));
 chai.use(require('chai-string'));
 chai.use(require('chai-xml'));
 
-const Formatter = require('../src/formatter');
+const Formatter = require('../out/formatter').default;
 const inputMock = require('./mocks/input');
 const outputMock = require('./mocks/output');
 
