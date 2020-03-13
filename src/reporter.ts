@@ -4,7 +4,7 @@ import { VinylFile } from 'gulp-typescript/release/types';
 import { defaults, sortBy } from 'lodash';
 import path from 'path';
 import { normalize as normalizePath } from 'upath';
-import Formatter from './formatter';
+import { formatError, formatStream } from './formatter';
 import { FormattedError, ReportOptions } from './types';
 
 function getDefaultOptions(partialOptions: Partial<ReportOptions> | undefined): ReportOptions {
@@ -21,14 +21,12 @@ export function report(partialOptions: Partial<ReportOptions> = {}): Reporter {
 
     const options = getDefaultOptions(partialOptions);
 
-    const formatter = new Formatter();
-
     return {
         error: (error: TypeScriptError) => {
             const file = error?.file;
             if (file) {
                 errorBuffer.push({
-                    xml: formatter.formatError(error),
+                    xml: formatError(error),
                     path: getReportedFilePath(options, file),
                 });
             }
@@ -38,7 +36,7 @@ export function report(partialOptions: Partial<ReportOptions> = {}): Reporter {
                 errorBuffer = sortBy(errorBuffer, 'path');
             }
 
-            const content = formatter.formatStream(errorBuffer);
+            const content = formatStream(errorBuffer);
             fs.promises.writeFile(options.filename, content).catch(error => {
                 // tslint:disable-next-line:no-console
                 console.error(error);
