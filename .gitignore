@@ -39,3 +39,5 @@ sandbox
 
 # Typescript
 out/
+
+.cache/
