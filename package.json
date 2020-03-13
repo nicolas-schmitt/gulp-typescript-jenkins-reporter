@@ -2,7 +2,8 @@
   "name": "gulp-typescript-jenkins-reporter",
   "version": "2.0.0",
   "description": "gulp-typescript pmd reporter, to be used by Jenkins (Hudson). Writes output to an xml file.",
-  "main": "out/index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
     "lint": "tslint 'src/**/*.ts' 'test/**/*.ts'",
