@@ -37,7 +37,5 @@ node_modules
 # Sandbox
 sandbox
 
-# Typescript
-out/
-
+# Jest
 .cache/
