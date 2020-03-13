@@ -1,4 +1,7 @@
 # gulp-typescript-jenkins-reporter
+
+[![Build Status](https://travis-ci.org/ska-kialo/gulp-typescript-jenkins-reporter.svg?branch=master)](https://travis-ci.org/ska-kialo/gulp-typescript-jenkins-reporter)
+
 gulp-typescript pmd reporter, to be used by Jenkins (Hudson). Writes output to an xml file.
 
 ## Install
