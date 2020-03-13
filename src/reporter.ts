@@ -40,6 +40,7 @@ export function report(partialOptions: Partial<ReportOptions> = {}): Reporter {
 
             const content = formatter.formatStream(errorBuffer);
             fs.promises.writeFile(options.filename, content).catch(error => {
+                // tslint:disable-next-line:no-console
                 console.error(error);
             });
         },

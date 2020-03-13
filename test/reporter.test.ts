@@ -5,8 +5,6 @@ import xpath from 'xpath';
 import { getReportedFilePath, report } from '../src/reporter';
 import { parseAndValidate } from './util';
 
-
-
 describe('reporter', () => {
     const tsFileShim: any = {
         path: '/home/ubuntu/workspace/src/file.js',
@@ -25,20 +23,14 @@ describe('reporter', () => {
     describe('report', () => {
         const reportPath = './pmd.xml';
         let reportContent = '';
-        let xmlReport: Document | undefined = undefined;
+        let xmlReport: Document | undefined;
 
         beforeAll(async () => {
-            jest.setTimeout(10000);
-            try {
-                await createReport();
-                const results = await fs.promises.readFile(reportPath);
-                reportContent = results.toString();
-                xmlReport = parseAndValidate(reportContent);
-            } catch (err) {
-                if (err) {
-                    console.error(err);
-                }
-            }
+            jest.setTimeout(15000);
+            await createReport();
+            const results = await fs.promises.readFile(reportPath);
+            reportContent = results.toString();
+            xmlReport = parseAndValidate(reportContent);
         });
 
         afterAll(() => fs.promises.unlink(reportPath));

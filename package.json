@@ -5,7 +5,8 @@
   "main": "out/index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint src test/*.test.js; exit 0"
+    "lint": "tslint src/**/*.ts test/**/*.ts",
+    "lint-and-test": "yarn tsc && yarn lint && yarn test"
   },
   "repository": {
     "type": "git",
@@ -49,6 +50,7 @@
     "jest": "^25.1.0",
     "jest-circus": "^25.1.0",
     "ts-jest": "^25.2.1",
+    "tslint": "^6.1.0",
     "typescript": "^3.8.3",
     "xmldom": "^0.3.0",
     "xpath": "^0.0.27"

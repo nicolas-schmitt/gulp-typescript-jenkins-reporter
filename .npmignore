@@ -4,6 +4,7 @@
 test
 sandbox
 tsconfig.json
+tslint.json
 jest.config.js
 
 # IDEs
