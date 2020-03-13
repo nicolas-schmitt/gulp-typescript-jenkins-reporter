@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatter formatError returns the xml corresponding to the error awful[0] 1`] = `
+<violation
+  begincolumn="22"
+  beginline="1"
+  endcolumn="35"
+  endline="1"
+  priority="1"
+  rule="TS2307"
+>
+  Cannot find module './dirtyy.ts'.
+</violation>
+`;
+
+exports[`formatter formatError returns the xml corresponding to the error awful[1] 1`] = `
+<violation
+  begincolumn="14"
+  beginline="7"
+  endcolumn="23"
+  endline="7"
+  priority="1"
+  rule="TS2339"
+>
+  Property 'something' does not exist on type 'Awful'.
+</violation>
+`;
+
+exports[`formatter formatError returns the xml corresponding to the error awful[2] 1`] = `
+<violation
+  begincolumn="13"
+  beginline="11"
+  endcolumn="16"
+  endline="11"
+  priority="1"
+  rule="TS7005"
+>
+  Variable 'tab' implicitly has an 'any[]' type.
+</violation>
+`;
+
+exports[`formatter formatError returns the xml corresponding to the error awful[3] 1`] = `
+<violation
+  begincolumn="25"
+  beginline="16"
+  endcolumn="30"
+  endline="16"
+  priority="1"
+  rule="TS2304"
+>
+  Cannot find name 'Dirty'.
+</violation>
+`;
+
+exports[`formatter formatError returns the xml corresponding to the error awful[4] 1`] = `
+<violation
+  begincolumn="10"
+  beginline="27"
+  endcolumn="11"
+  endline="27"
+  priority="1"
+  rule="TS2430"
+>
+  Interface 'B' incorrectly extends interface 'A'.
+  Types of property 'prop' are incompatible.
+    Type 'string' is not assignable to type 'number'.
+</violation>
+`;
+
+exports[`formatter formatError returns the xml corresponding to the error dirty[0] 1`] = `
+<violation
+  begincolumn="17"
+  beginline="6"
+  endcolumn="22"
+  endline="6"
+  priority="1"
+  rule="TS2339"
+>
+  Property 'loggg' does not exist on type 'Console'.
+</violation>
+`;
+
+exports[`formatter formatError returns the xml corresponding to the error dirty[1] 1`] = `
+<violation
+  begincolumn="16"
+  beginline="11"
+  endcolumn="22"
+  endline="11"
+  priority="1"
+  rule="TS2322"
+>
+  Type 'string' is not assignable to type 'number'.
+</violation>
+`;
+
+exports[`formatter formatFile returns a file element with violations for awful 1`] = `
+<file
+  name="/home/ubuntu/workspace/sandbox/data/awful.ts"
+>
+  <violation
+    begincolumn="22"
+    beginline="1"
+    endcolumn="35"
+    endline="1"
+    priority="1"
+    rule="TS2307"
+  >
+    Cannot find module './dirtyy.ts'.
+  </violation>
+  <violation
+    begincolumn="14"
+    beginline="7"
+    endcolumn="23"
+    endline="7"
+    priority="1"
+    rule="TS2339"
+  >
+    Property 'something' does not exist on type 'Awful'.
+  </violation>
+  <violation
+    begincolumn="13"
+    beginline="11"
+    endcolumn="16"
+    endline="11"
+    priority="1"
+    rule="TS7005"
+  >
+    Variable 'tab' implicitly has an 'any[]' type.
+  </violation>
+  <violation
+    begincolumn="25"
+    beginline="16"
+    endcolumn="30"
+    endline="16"
+    priority="1"
+    rule="TS2304"
+  >
+    Cannot find name 'Dirty'.
+  </violation>
+  <violation
+    begincolumn="10"
+    beginline="27"
+    endcolumn="11"
+    endline="27"
+    priority="1"
+    rule="TS2430"
+  >
+    Interface 'B' incorrectly extends interface 'A'.
+  Types of property 'prop' are incompatible.
+    Type 'string' is not assignable to type 'number'.
+  </violation>
+</file>
+`;
+
+exports[`formatter formatFile returns a file element with violations for dirty 1`] = `
+<file
+  name="/home/ubuntu/workspace/sandbox/data/dirty.ts"
+>
+  <violation
+    begincolumn="17"
+    beginline="6"
+    endcolumn="22"
+    endline="6"
+    priority="1"
+    rule="TS2339"
+  >
+    Property 'loggg' does not exist on type 'Console'.
+  </violation>
+  <violation
+    begincolumn="16"
+    beginline="11"
+    endcolumn="22"
+    endline="11"
+    priority="1"
+    rule="TS2322"
+  >
+    Type 'string' is not assignable to type 'number'.
+  </violation>
+</file>
+`;
+
+exports[`formatter formatFile returns no file element with violations for clean 1`] = `undefined`;
+
+exports[`formatter formatStream returns a pmd element with file elements as children 1`] = `
+<pmd
+  version="4.2.5"
+>
+  <file
+    name="data/dirty.ts"
+  >
+    <violation
+      begincolumn="17"
+      beginline="6"
+      endcolumn="22"
+      endline="6"
+      priority="1"
+      rule="TS2339"
+    >
+      Property 'loggg' does not exist on type 'Console'.
+    </violation>
+    <violation
+      begincolumn="16"
+      beginline="11"
+      endcolumn="22"
+      endline="11"
+      priority="1"
+      rule="TS2322"
+    >
+      Type 'string' is not assignable to type 'number'.
+    </violation>
+  </file>
+  <file
+    name="data/awful.ts"
+  >
+    <violation
+      begincolumn="22"
+      beginline="1"
+      endcolumn="35"
+      endline="1"
+      priority="1"
+      rule="TS2307"
+    >
+      Cannot find module './dirtyy.ts'.
+    </violation>
+    <violation
+      begincolumn="14"
+      beginline="7"
+      endcolumn="23"
+      endline="7"
+      priority="1"
+      rule="TS2339"
+    >
+      Property 'something' does not exist on type 'Awful'.
+    </violation>
+    <violation
+      begincolumn="13"
+      beginline="11"
+      endcolumn="16"
+      endline="11"
+      priority="1"
+      rule="TS7005"
+    >
+      Variable 'tab' implicitly has an 'any[]' type.
+    </violation>
+    <violation
+      begincolumn="25"
+      beginline="16"
+      endcolumn="30"
+      endline="16"
+      priority="1"
+      rule="TS2304"
+    >
+      Cannot find name 'Dirty'.
+    </violation>
+    <violation
+      begincolumn="10"
+      beginline="27"
+      endcolumn="11"
+      endline="27"
+      priority="1"
+      rule="TS2430"
+    >
+      Interface 'B' incorrectly extends interface 'A'.
+  Types of property 'prop' are incompatible.
+    Type 'string' is not assignable to type 'number'.
+    </violation>
+  </file>
+</pmd>
+`;
