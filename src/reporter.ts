@@ -1,4 +1,4 @@
-import { promises } from 'fs';
+import fs from 'fs';
 import { Reporter, TypeScriptError } from 'gulp-typescript/release/reporter';
 import { VinylFile } from 'gulp-typescript/release/types';
 import { defaults, sortBy } from 'lodash';
@@ -6,8 +6,6 @@ import path from 'path';
 import { normalize as normalizePath } from 'upath';
 import Formatter from './formatter';
 import { FormattedError, ReportOptions } from './types';
-const { writeFile } = promises;
-
 
 function getDefaultOptions(partialOptions: Partial<ReportOptions> | undefined): ReportOptions {
     return defaults({}, partialOptions, {
@@ -41,7 +39,7 @@ export function report(partialOptions: Partial<ReportOptions> = {}): Reporter {
             }
 
             const content = formatter.formatStream(errorBuffer);
-            writeFile(options.filename, content).catch(error => {
+            fs.promises.writeFile(options.filename, content).catch(error => {
                 console.error(error);
             });
         },

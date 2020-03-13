@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+export default {
     clean: {
         fullFilename: '/home/ubuntu/workspace/sandbox/data/clean.ts',
         relativeFilename: 'data/clean.ts',

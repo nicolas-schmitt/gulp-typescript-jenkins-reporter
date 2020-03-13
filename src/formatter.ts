@@ -1,6 +1,6 @@
 import { TypeScriptError } from 'gulp-typescript/release/reporter';
 import { escape, groupBy } from 'lodash';
-import { DiagnosticCategory, DiagnosticMessageChain, flattenDiagnosticMessageText } from 'typescript';
+import { DiagnosticCategory, flattenDiagnosticMessageText } from 'typescript';
 import { FormattedError, TypescriptErrorPosition } from './types';
 
 const DefaultPosition: TypescriptErrorPosition = {
@@ -26,27 +26,6 @@ export default class Formatter {
         }
 
         return `<file name="${fileName}">${errors.map(error => error.xml).join('')}</file>`;
-    }
-
-    formatMessage(message: DiagnosticMessageChain | string, indent: number): string {
-        const indentStr = ' '.repeat(indent);
-        if (typeof message === 'string') {
-            return indentStr + message;
-        }
-
-        if (!message.next || message.next.length === 0) {
-            return indentStr + message.messageText;
-        }
-
-        let chainedMessages;
-        // TODO: Use flattenDiagnosticMessageText?
-        if (Array.isArray(message.next)) {
-            chainedMessages = message.next.map(chain => this.formatMessage(chain, indent + 2)).join('');
-        } else {
-            chainedMessages = this.formatMessage(message.next, indent + 2);
-        }
-
-        return indentStr + message.messageText + '\n' + chainedMessages;
     }
 
     formatError(error: TypeScriptError): string {

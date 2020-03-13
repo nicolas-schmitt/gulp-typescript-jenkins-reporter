@@ -4,7 +4,7 @@
   "description": "gulp-typescript pmd reporter, to be used by Jenkins (Hudson). Writes output to an xml file.",
   "main": "out/index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "jest",
     "lint": "eslint src test/*.test.js; exit 0"
   },
   "repository": {
@@ -36,20 +36,19 @@
   },
   "dependencies": {
     "lodash": "^4.17.15",
-    "upath": "^1.2.0",
-    "vinyl": "^2.2.0"
+    "upath": "^1.2.0"
   },
   "devDependencies": {
+    "@types/gulp": "^4.0.6",
+    "@types/jest": "^25.1.4",
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.9.0",
-    "chai": "^4.2.0",
-    "chai-spies": "^1.0.0",
-    "chai-string": "^1.5.0",
-    "chai-xml": "^0.3.2",
-    "eslint": "^3.12.2",
+    "@types/xmldom": "^0.1.29",
     "gulp": "^4.0.2",
     "gulp-typescript": "^5.0.1",
-    "mocha": "^7.1.0",
+    "jest": "^25.1.0",
+    "jest-circus": "^25.1.0",
+    "ts-jest": "^25.2.1",
     "typescript": "^3.8.3",
     "xmldom": "^0.3.0",
     "xpath": "^0.0.27"
