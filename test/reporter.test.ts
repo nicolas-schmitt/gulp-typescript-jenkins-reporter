@@ -1,7 +1,6 @@
 import fs from 'fs';
 import gulp from 'gulp';
 import ts from 'gulp-typescript';
-import xpath from 'xpath';
 import { getReportedFilePath, report } from '../src/reporter';
 import { parseAndValidate } from './util';
 
@@ -23,33 +22,14 @@ describe('reporter', () => {
         });
     }
 
-    describe('report', () => {
+    it('report should create a valid xml report', async () => {
         const reportPath = './pmd.xml';
-        let reportContent = '';
-        let xmlReport: Document | undefined;
+        await createReport(reportPath);
+        const contents = await fs.promises.readFile(reportPath);
 
-        beforeAll(async () => {
-            await createReport();
-            const results = await fs.promises.readFile(reportPath);
-            reportContent = results.toString();
-            xmlReport = parseAndValidate(reportContent);
-        });
+        expect(parseAndValidate(contents.toString())?.documentElement).toMatchSnapshot();
 
-        afterAll(() => fs.promises.unlink(reportPath));
-
-        it('should create a valid xml report', () => {
-            parseAndValidate(reportContent);
-        });
-
-        it('should create an xml report with one file node', () => {
-            const nodes = xpath.select('//file', xmlReport);
-            expect(nodes.length).toBe(1);
-        });
-
-        it('should create an xml report with 4 violation nodes', () => {
-            const nodes = xpath.select('//violation', xmlReport);
-            expect(nodes.length).toBe(4);
-        });
+        await fs.promises.unlink(reportPath);
     });
 
     describe('getReportedFilePath', () => {

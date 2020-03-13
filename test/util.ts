@@ -1,6 +1,10 @@
 import { DOMParser } from 'xmldom';
 
-export function parseAndValidate(xml: string): Document {
+export function parseAndValidate(xml: string): Document | undefined {
+    if (!xml) {
+        return undefined;
+    }
+
     const errors: Array<[string, any]> = [];
 
     const doc = new DOMParser({
