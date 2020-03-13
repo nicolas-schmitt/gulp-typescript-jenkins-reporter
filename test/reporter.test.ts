@@ -5,6 +5,8 @@ import xpath from 'xpath';
 import { getReportedFilePath, report } from '../src/reporter';
 import { parseAndValidate } from './util';
 
+jest.setTimeout(15000);
+
 describe('reporter', () => {
     const tsFileShim: any = {
         path: '/home/ubuntu/workspace/src/file.js',
@@ -16,6 +18,7 @@ describe('reporter', () => {
             gulp.src('./test/mocks/dirty.ts')
                 .pipe(project(report({ filename: path })))
                 .on('finish', resolve)
+                // tslint:disable-next-line:no-empty
                 .on('error', () => {});
         });
     }
@@ -26,7 +29,6 @@ describe('reporter', () => {
         let xmlReport: Document | undefined;
 
         beforeAll(async () => {
-            jest.setTimeout(15000);
             await createReport();
             const results = await fs.promises.readFile(reportPath);
             reportContent = results.toString();
