@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/nicolas-schmitt/gulp-typescript-jenkins-reporter#readme",
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=10"
   },
   "peerDependencies": {
     "gulp-typescript": "^5.0.1"
