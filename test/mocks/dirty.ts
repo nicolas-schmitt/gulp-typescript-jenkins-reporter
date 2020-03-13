@@ -1,7 +1,8 @@
+// tslint:disable:max-classes-per-file
 export class Orc {
     private name: string;
     private weapon: string;
-    
+
     constructor(name: string) {
         this.name = name;
     }
