@@ -5,7 +5,7 @@ exports[`reporter report should create a valid xml report 1`] = `
   version="4.2.5"
 >
   <file
-    name="/Users/simon/work/gulp-typescript-jenkins-reporter/test/mocks/dirty.ts"
+    name="/test/mocks/dirty.ts"
   >
     <violation
       begincolumn="14"

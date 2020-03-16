@@ -15,7 +15,7 @@ describe('reporter', () => {
         const project = ts.createProject({});
         return new Promise(resolve => {
             gulp.src('./test/mocks/dirty.ts')
-                .pipe(project(report({ filename: path })))
+                .pipe(project(report({ filename: path, pathBase: '/test/mocks', pathPrefix: '/test/mocks'  })))
                 .on('finish', resolve)
                 // tslint:disable-next-line:no-empty
                 .on('error', () => {});
