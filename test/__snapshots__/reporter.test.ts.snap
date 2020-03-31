@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reporter report should create a valid xml report 1`] = `
+<pmd
+  version="4.2.5"
+>
+  <file
+    name="/test/mocks/dirty.ts"
+  >
+    <violation
+      begincolumn="14"
+      beginline="12"
+      endcolumn="18"
+      endline="12"
+      priority="1"
+      rule="TS2345"
+    >
+      Argument of type 'number' is not assignable to parameter of type 'string'.
+    </violation>
+    <violation
+      begincolumn="13"
+      beginline="13"
+      endcolumn="20"
+      endline="13"
+      priority="1"
+      rule="TS2551"
+    >
+      Property 'weaponn' does not exist on type 'Peon'. Did you mean 'weapon'?
+    </violation>
+    <violation
+      begincolumn="13"
+      beginline="20"
+      endcolumn="19"
+      endline="20"
+      priority="1"
+      rule="TS2341"
+    >
+      Property 'weapon' is private and only accessible within class 'Orc'.
+    </violation>
+    <violation
+      begincolumn="10"
+      beginline="28"
+      endcolumn="11"
+      endline="28"
+      priority="1"
+      rule="TS2430"
+    >
+      Interface 'B' incorrectly extends interface 'A'.
+  Types of property 'prop' are incompatible.
+    Type 'string' is not assignable to type 'number'.
+    </violation>
+  </file>
+</pmd>
+`;

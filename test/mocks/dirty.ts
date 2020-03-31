@@ -1,7 +1,8 @@
+// tslint:disable:max-classes-per-file
 export class Orc {
     private name: string;
     private weapon: string;
-    
+
     constructor(name: string) {
         this.name = name;
     }
@@ -19,4 +20,12 @@ export class Grunt extends Orc {
         super(name);
         this.weapon = 'axe';
     }
+}
+
+interface A {
+    prop: number;
+}
+
+interface B extends A {
+    prop: string;
 }

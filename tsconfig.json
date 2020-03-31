@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        /* Basic Options */
+        "target": "ES2015",
+        "module": "commonjs",
+        "lib": ["ES2015", "DOM"],
+        "outDir": "lib",
+        "declaration": true,
+        "declarationDir": "lib",
+        "rootDir": "./src",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+
+        "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
+    },
+    "include": ["./src/**/*"]
+}

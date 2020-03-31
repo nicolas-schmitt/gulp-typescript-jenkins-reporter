@@ -3,6 +3,9 @@
 .travis.yml
 test
 sandbox
+tsconfig.json
+tslint.json
+jest.config.js
 
 # IDEs
 .c9

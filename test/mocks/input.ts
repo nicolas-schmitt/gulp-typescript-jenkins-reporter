@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+export default {
     clean: {
         fullFilename: '/home/ubuntu/workspace/sandbox/data/clean.ts',
         relativeFilename: 'data/clean.ts',
@@ -245,6 +243,63 @@ module.exports = {
                 code: 2304,
                 category: 1,
                 messageText: 'Cannot find name \'Dirty\'.'
+            },
+            tsFile: {
+                kind: 251,
+                pos: 0,
+                end: 305,
+                flags: 0,
+                text: 'import {Dirtyy} from \'./dirtyy.ts\';\n\nclass Awful {\n    private str = \'\';\n\n    constructor() {\n        this.something = \'woo\';\n    }\n    \n    chop(): number {\n        var tab = []\n        return tab[\'hello\'];\n    }\n    \n    call() {\n        let dirty = new Dirty();\n        return dirty.nothing();\n    }\n}\n',
+                languageVersion: undefined,
+                fileName: '/home/ubuntu/workspace/sandbox/data/awful.ts',
+                languageVariant: 0,
+                scriptKind: 3,
+                referencedFiles: [],
+                amdDependencies: [],
+                moduleName: undefined,
+                nodeCount: 53,
+                identifierCount: 13,
+                parseDiagnostics: [],
+                path: '/home/ubuntu/workspace/sandbox/data/awful.ts',
+                symbolCount: 22062,
+                id: 14999
+            }
+        }, {
+            name: 'TypeScript error',
+            fullFilename: '/home/ubuntu/workspace/sandbox/data/awful.ts',
+            relativeFilename: 'data/awful.ts',
+            startPosition: {
+                position: 300,
+                line: 27,
+                character: 10
+            },
+            endPosition: {
+                position: 301,
+                line: 27,
+                character: 11
+            },
+            message: '\u001b[31mtest/mocks/dirty.ts(28,11): \u001b[39merror TS2430: Interface \'B\' incorrectly extends interface \'A\'.\n  Types of property \'prop\' are incompatible.\n  Type \'string\' is not assignable to type \'number\'.',
+            diagnostic: {
+                start: 300,
+                length: 1,
+                code: 2430,
+                category: 1,
+                messageText: {
+                    messageText: "Interface 'B' incorrectly extends interface 'A'.",
+                    category: 1,
+                    code: 2430,
+                    next: [{
+                        messageText: "Types of property 'prop' are incompatible.",
+                        category: 1,
+                        code: 2326,
+                        next: [{
+                            messageText: "Type 'string' is not assignable to type 'number'.",
+                            category: 1,
+                            code: 2322,
+                            next: undefined
+                        }]
+                    }]
+                }
             },
             tsFile: {
                 kind: 251,
