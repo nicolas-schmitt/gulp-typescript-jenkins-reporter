@@ -10,7 +10,7 @@ npm install gulp-typescript-jenkins-reporter -D
 ```javascript
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
-var reporter = require('gulp-typescript-jenkins-reporter').default;
+var reporter = require('gulp-typescript-jenkins-reporter');
 
 gulp.task('compile', function() {
 	return gulp.src('./src/**/*.ts')
@@ -29,7 +29,7 @@ your project
 ```javascript
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
-var reporter = require('gulp-typescript-jenkins-reporter').default;
+var reporter = require('gulp-typescript-jenkins-reporter');
 
 gulp.task('compile', function() {
 	return gulp.src('./src/**/*.ts')

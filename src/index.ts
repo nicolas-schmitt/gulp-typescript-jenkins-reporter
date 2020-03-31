@@ -1,3 +1,3 @@
 import { report } from './reporter';
 
-export default report;
+export = report;
